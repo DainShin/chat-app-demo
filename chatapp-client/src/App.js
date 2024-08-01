@@ -20,27 +20,9 @@ function App() {
     askUserName();
   }, []);
 
-  // using prompt window, accepting the user name
-  const askUserName = () => {
-    const userName = prompt("Enter your name");
-    console.log("uuu", userName);
 
-    // using the emit method from the socket object
-    // emit(title of the chatting, the contents, callback function)
-    socket.emit("login", userName, (res) => {
-      if (res?.ok) {
-        setUser(res.data);
-      }
-    });
-  };
-
-  const sendMessage = (event) => {
-    // stops refreshing the page(onSubmit default event)
-    event.preventDefault()
-    socket.emit("sendMessage", message, (res) => {
-      console.log("sendMessage res", res);
-    });
-  }
+  // demo section
+  
 
   return (
     <div>
